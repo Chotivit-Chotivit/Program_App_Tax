@@ -1,0 +1,10 @@
+{
+    "yearincome": 1000000,
+    "expenses": 100000,
+    "Allowance": 60000,
+    "Net income": 840000,
+    "Tax rate": 0.2,
+    "Maxtax": 65000,
+    "Max Net income": 750000,
+    "Tax payable (THB)": 83000.0
+}
