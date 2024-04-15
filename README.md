@@ -1,6 +1,9 @@
 # Program_App_Tax
 
 
+![Screenshot 2024-04-05 002413](https://github.com/Chotivit-Chotivit/Program_App_Tax/assets/91452285/c5354ef0-879b-4a31-a8da-b5eca5723095)
+
+
 โปรเเกรมคำนวณภาษี เป็นprojectถัดมาจาก คำนวณภาษีเงินได้บุคคลธรรมดาโดยใช้python(Tax-calculation)
 โดยprojectนี้นั่นได้พัฒนาการคำนวณภาษีจากprojectเเต่เดิมที่ต้องไปรันในterminal ซึ่งค่อนข้างเกิดความยุ่งยาก
 ให้กับผู้ใช้ทั้งจะต้องติดตั้ง module สารพัดmodule ซึ่งผู้ใช้ก็คงไม่มาเสียเวลาในการรันในterminal เเละติดตั้งmodule 
