@@ -1,6 +1,6 @@
 #23/3/2024 - 4/4/2024
 #Chotivit busamongkol
-#โปรเเกรมคำนวณภาษีเเบบบุคคลธรรมดา
+
 
 from tkinter import*
 from tkinter import filedialog 
@@ -11,7 +11,7 @@ import json
 from tkinter import messagebox
 
 os.getcwd()
-os.chdir('C:\\Users\\chotivit busamongkol\\apptax\\Pictures tax') #รูปicon
+os.chdir('C:\\Users\\chotivit busamongkol\\apptax\\Pictures tax')
 
 
 
@@ -26,24 +26,24 @@ menu_tax = Menu()
 window.config(menu = menu_tax)
 
 def Exit1():
-    cf = messagebox.askquestion('Exit','ต้องการออกจากโปรเเกรมหรือมั้ย?')  #ปุ่มหรือ menuออกจากเเอพ
+    cf = messagebox.askquestion('Exit','ต้องการออกจากโปรเเกรมหรือมั้ย?')  
     if cf == 'yes':
         window.destroy()
 
-def openfile_data():    #menu อ่านไฟล์ที่เราsaveจากการเก็บข้อมูลเเล้วนำมาเปิด
+def openfile_data():    
     openfile =Tk()
     openfile.title("อ่านไฟล์json")
     openfile.configure(bg='#333333')
     openfile.iconbitmap ('highschool_CB.ico')
 
-    def openjson():  #function อ่านไฟล์
+    def openjson():  
         json_file = open("taxjson101.json",'r')
         stuff = json_file.read()
 
         my_json.insert(END,stuff)
         json_file.close()
 
-    def Exit_off(): #function ปิดการทำงานของmenuอ่านไฟล์
+    def Exit_off(): 
         openfile.destroy()
 
     my_json =Text(openfile,width=40,height=10)
@@ -58,7 +58,7 @@ def openfile_data():    #menu อ่านไฟล์ที่เราsaveจ�
 
     openfile.mainloop()
 
-def data_about_tax(): #menuสูตรในการคำนวณภาษี
+def data_about_tax(): 
     global my_img,photo1
     data = Toplevel()
     data.title('สูตรในการคำนวณภาษี')
@@ -72,10 +72,10 @@ def data_about_tax(): #menuสูตรในการคำนวณภาษ�
     photo1 = ImageTk.PhotoImage(Image.open("Screenshot 2024-04-04 144904.png")) 
     labelphoto1 =  Label(data,image=photo1).pack()
    
-def language(): #menu
+def language(): 
     messagebox.showinfo('ภาษาที่ใช้ในการพัฒนา','Python')
 
-def dev(): #menu
+def dev(): 
     messagebox.showinfo('developer','Chotivit Busamongkol')
 
 menuabout = Menu()
@@ -92,15 +92,15 @@ menu_tax.add_cascade(label='File',menu = menuFile)
 menu_tax.add_cascade(label="About",menu=menuabout)
 
 
-window.configure(bg='#333333') #สีพื้นหัลง
+window.configure(bg='#333333') 
 
 
 
 
-Label(text='รายได้ทั้งปี+โบนัส',font=20,bg='#333333',fg='#FFFFFF').grid(row=0,sticky=W) #คำถามในช่องนั้นๆ
-yincome = IntVar()      #นำค่าที่ได้จากการกรอกในช่องกรอกมาเก็บในyincome
-yearincome = Entry(textvariable=yincome) #รับค่า
-yearincome.grid(row=0,column=1) #ขนาด
+Label(text='รายได้ทั้งปี+โบนัส',font=20,bg='#333333',fg='#FFFFFF').grid(row=0,sticky=W) 
+yincome = IntVar()      
+yearincome = Entry(textvariable=yincome) 
+yearincome.grid(row=0,column=1) 
 
 Label(text='ค่าใช้จ่ายทั้งปี',font=20,bg='#333333',fg='#FFFFFF').grid(row=1,sticky=W)
 ep =IntVar()
@@ -135,26 +135,26 @@ Taxall.grid(row=12,column=1)
 
 
 
-lnet = [] #listของnetincome1
-ylen =[] # list ของ yearincome
-elen = [] #list ของ expenses
-Alen = [] #list ของ Allowance
-tlen = [] #list ของ อัตราภาษี
-maxlen = [] #list ของ ภาษีสะสมสูงสุดของลำดับขั้นก่อนหน้า
-iblen = []#list ของ เงินได้สุทธิจำนวนสูงสุดของขั้นก่อนหน้า
-taxalllen = []#list ของ ภาษีที่ต้องชำระ
+lnet = [] 
+ylen =[] 
+elen = [] 
+Alen = []
+tlen = []
+maxlen = [] 
+iblen = []
+taxalllen = []
 
 def shownetincome():
-    yearincome = yincome.get() #รายได้ทั้งปี
-    expenses = ep.get()  #ค่าใช้จ่ายทั้งปี
-    Allowance = Aw.get()  #ค่าลดหย่อน
-    netincome1 = yearincome-expenses-Allowance #คำนวณเงินสุทธิ
+    yearincome = yincome.get()
+    expenses = ep.get() 
+    Allowance = Aw.get()  
+    netincome1 = yearincome-expenses-Allowance
     netincome.insert(0,netincome1)
 
-    lnet.append(netincome1) #นำค่าในnetincome1ที่รับมาไปเก็บในlnet
-    ylen.append(yearincome)#นำค่าในyearincomeที่รับมาไปเก็บในylen
-    elen.append(expenses)#นำค่าในexpensesที่รับมาไปเก็บในelen
-    Alen.append(Allowance)#นำค่าในAllowanceที่รับมาไปเก็บในAlen
+    lnet.append(netincome1) 
+    ylen.append(yearincome)
+    elen.append(expenses)
+    Alen.append(Allowance)
 
 
 
@@ -163,13 +163,13 @@ def shownetincome():
 def tax01():   
     if sum(lnet) <= 150000: 
         tax_rate =  'อัตราภาษี 0% ได้รับการยกเว้นภาษี'
-        tax_percent = 0  #อัตราภาษี
-        Maxtax = 0       #ภาษีสะสมสูงสุดของลำดับขั้นก่อนหน้า
-        incomebefore = 150000   #เงินได้สุทธิจำนวนสูงสุดของขั้นก่อนหน้า
+        tax_percent = 0  
+        Maxtax = 0       
+        incomebefore = 150000  
 
-        tax.insert(0,tax_rate) #showอัตราภาษีที่เป็นtax
-        Maxtaxtext.insert(0,Maxtax) #showภาษีสะสมสูงสุดของลำดับขั้นก่อนหน้า
-        incomebeforetext.insert(0,incomebefore) #showเงินได้สุทธิจำนวนสูงสุดของขั้นก่อนหน้า
+        tax.insert(0,tax_rate) 
+        Maxtaxtext.insert(0,Maxtax) 
+        incomebeforetext.insert(0,incomebefore) 
         
 
     elif sum(lnet) >= 150001 and sum(lnet) <= 300000:
@@ -242,13 +242,13 @@ def tax01():
         Maxtaxtext.insert(0,Maxtax)
         incomebeforetext.insert(0,incomebefore)
 
-    tax_all = ((sum(lnet)-incomebefore)*tax_percent)+Maxtax #สูตรในการคำนวณภาษีที่ต้องชำระ
+    tax_all = ((sum(lnet)-incomebefore)*tax_percent)+Maxtax 
     Taxall.insert(0,tax_all)
 
-    tlen.append(tax_percent) #นำค่าในtax_percentที่ตรงตามเงื่อนไขไปเก็บในtlen
-    maxlen.append(Maxtax)#นำค่าในMaxtaxที่ตรงตามเงื่อนไขไปเก็บในtlen
-    iblen.append(incomebefore)#นำค่าในincomebeforeที่ตรงตามเงื่อนไขไปเก็บในtlen
-    taxalllen.append(tax_all)#นำค่าในtax_allที่ตรงตามเงื่อนไขมาไปเก็บในtlen  เพื่อนำไปตำนวณกาภาษีที่ต้องชำระทั้งหมด
+    tlen.append(tax_percent)
+    maxlen.append(Maxtax)
+    iblen.append(incomebefore)
+    taxalllen.append(tax_all)
     
 
 
@@ -257,7 +257,7 @@ def tax01():
 
 
 
-def delete2(): #function ล้างขอ้มูลที่กรอรในช่อง
+def delete2(): 
     yearincome.delete(0,END)
     expenses.delete(0,END)
     Allowance.delete(0,END)
@@ -271,7 +271,7 @@ def delete2(): #function ล้างขอ้มูลที่กรอรใ�
 
 
 
-def saveExcel(): #function บันทึกข้อมูล โดยsaveเป็นjson
+def saveExcel(): 
 
     taxjson_dict = {
               "yearincome":sum(ylen),
